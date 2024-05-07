@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+<div class="website">
+  <div class="container calculator">
+    <div class="column column1">
+      <div class="calculator-controls">
+        <h3>Your industry</h3>
+        <h5>Choose your industry, or pick Average if you can't find it.</h5>
+        <select name="_industry_type_" id="_industry_type_">
+          <option value="tech">Technology</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="finance">Finance</option>
+          <option value="education">Education</option>
+          <option value="manufacturing">Manufacturing</option>
+        </select>
+      </div>
+      <div class="calculator-controls">
+        <h3>Number of B2b prospects</h3>
+        <h5>Choose the number of prospects you want to engage each month.</h5>
+        <div class="range-option">
+          <input type="range" class="range-slider" data-tooltip="#_b2b_prospects_tooltip_" id="_b2b_prospects_" min="1" max="100" value="10">
+          <span class="range-tooltip">
+            <span id="_b2b_prospects_tooltip_">10</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="column column2">
+      <div class="calculator-controls">
+        <h3>Average Deal Size</h3>
+        <h5>Choose the average sizen of your deals.</h5>
+        <div class="range-option">
+          <input type="range" data-tooltip="#_avg_deals_tooltip_" class="range-slider" id="_avg_deals_" min="1" max="100" value="10">
+          <span class="range-tooltip">
+            <span id="_avg_deals_tooltip_">10</span>
+          </span>
+        </div>
+      </div>
+      <div class="calculator-controls">
+        <h3>Close ratio (after appoinment)%</h3>
+        <h5>To calculate this number, divide the number of sales you made by the number of quotes you sent out.</h5>
+        <div class="range-option">
+          <input type="range" data-tooltip="#_close_ratio_tooltip_" class="range-slider" id="_close_ratio_" min="1" max="100"
+            value="10">
+          <span class="range-tooltip">
+            <span id="_close_ratio_tooltip_">10</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="column column3">
+      <div>
+        <h3>B2B lead generation that sees your business through</h3>
+        <div class="totalizer-container">
+          <div class="column column-100">
+            <div class="totalizer-item totalizer-item-main">
+              <h3>$<span id="_total_per_year_"></span> <small>/ Year</small></h3>
+            </div>
+          </div>
+          <div class="column column-50">
+            <div class="totalizer-item totalizer-sub-total">
+              <h3 id="_total_appointment_"></h3>
+              <h5>Approx. number of appointment booked / monthly</h5>
+            </div>
+          </div>
+          <div class="column column-50">
+            <div class="totalizer-item totalizer-sub-total">
+              <h3><spann id="_total_marketing_return_"></spann>%</h3>
+              <h5>Return on marketing investment</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/rangeSlider.js"></script>
+<script src="js/calculator.js"></script>
+
+<script>
+function generateRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const INDUSTRY_TYPE_MAP = [
+  {
+    label: 'tech',
+    ponderation: generateRandomNumber(1000, 2000)
+  },
+  {
+    label: 'healthcare',
+    ponderation: generateRandomNumber(1000, 2000)
+  },
+  {
+    label: 'finance',
+    ponderation: generateRandomNumber(1000, 2000)
+  },
+  {
+    label: 'education',
+    ponderation: generateRandomNumber(1000, 2000)
+  },
+  {
+    label: 'manufacturing',
+    ponderation: generateRandomNumber(1000, 2000)
+  },
+]
+document.addEventListener('DOMContentLoaded', function () {
+  let calculator = new Calculator();
+})
+</script>
+
+</body>
+
+</html>
